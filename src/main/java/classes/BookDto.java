@@ -1,13 +1,13 @@
 package classes;
 
-public class Books {
+public class BookDto {
     private String author;
     private String bookTitle;
 
-    public Books() {
+    public BookDto() {
     }
 
-    public Books(String author, String bookTitle) {
+    public BookDto(String author, String bookTitle) {
         this.author = author;
         this.bookTitle = bookTitle;
     }
@@ -32,7 +32,7 @@ public class Books {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Books that = (Books) o;
+        BookDto that = (BookDto) o;
         return author.equals(that.author) &&
                 bookTitle.equals(that.bookTitle);
     }

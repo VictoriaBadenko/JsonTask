@@ -1,22 +1,21 @@
 package readJson;
 
-import classes.Application;
+import classes.WebsiteDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 
-public class ReadJson {
+public class JsonParseHelper {
 
-    public Application readJson() {
+    public static void readJson() {
         ObjectMapper mapper = new ObjectMapper();
-        Application application = null;
+        WebsiteDto website = null;
         try {
             File json = new File("src\\main\\resources\\test.json");
-            application = mapper.readValue(json, Application.class);
+            website = mapper.readValue(json, WebsiteDto.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return application;
+        System.out.println(website);
     }
-
 }

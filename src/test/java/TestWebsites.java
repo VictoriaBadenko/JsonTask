@@ -1,23 +1,33 @@
-import classes.Books;
+import classes.BookDto;
+import classes.WebsiteDto;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import readJson.ReadJson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestWebsites {
 
-    ReadJson jSon = new ReadJson();
+    WebsiteDto inputData;
 
-    @Test
-    public void validBook() {
-        Books pascal = new Books("Test1", "Pascal");
-        Assert.assertTrue(jSon.readJson().getAmazon().getBooks().contains(pascal));
+    @BeforeTest
+    public void beforeTest() {
+        WebsiteDto inputData = new WebsiteDto();
+        inputData.bookDtos = new ArrayList<BookDto>();
     }
 
     @Test
-    public void inValidBook() {
-        Books js = new Books("Test4", "JS");
-        Assert.assertFalse(jSon.readJson().getRozetka().getBooks().contains(js));
+    public void testPositive() {
+        List<BookDto> expectedData = new ArrayList<BookDto>();
+        expectedData.add(new BookDto("Test1", "Pascal"));
+        Assert.assertEquals(expectedData, inputData.bookDtos, "Expected book was not found");
     }
 
-
+    @Test
+    public void testNegative() {
+        List<BookDto> expectedData = new ArrayList<BookDto>();
+        expectedData.add(new BookDto("Test4", "JS"));
+        Assert.assertEquals(expectedData, inputData.bookDtos, "Expected book was not found");
+    }
 }
