@@ -9,7 +9,7 @@ public class WebsiteDto {
     public WebsiteDto() {
     }
 
-    public WebsiteDto(List bookDtos, Long id) {
+    public WebsiteDto(List<BookDto> bookDtos, Long id) {
         this.bookDtos = bookDtos;
         this.id = id;
     }

@@ -21,7 +21,7 @@ public class TestWebsites {
     public void testPositive() {
         List<BookDto> expectedData = new ArrayList<BookDto>();
         expectedData.add(new BookDto("Test1", "Pascal"));
-        Assert.assertEquals(expectedData, inputData.bookDtos, "Expected book was not found");
+        Assert.assertEquals(expectedData, inputData.bookDtos,"Expected book was not found");
     }
 
     @Test
